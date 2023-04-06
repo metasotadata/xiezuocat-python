@@ -56,11 +56,11 @@ class Xiezuocat:
 
         return response.text
 
-    def get_sso_signature(self, appId, user_id):
+    def get_sso_signature(self, appId, uid):
         timestamp = time.time()
         para_map = {}
         para_map["appId"] = appId
-        para_map["uid"] = user_id
+        para_map["uid"] = uid
         para_map["timestamp"] = timestamp
         sign = sm3_signature_util.signature_sm3(para_map, self._secret_key)
         para_map["sign"] = sign

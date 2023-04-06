@@ -11,7 +11,7 @@ pip install xiezuocat
 ```python
 import xiezuocat
 import json
-my_xiezuocat = xiezuocat.Xiezuocat('XXX')
+my_xiezuocat = xiezuocat.Xiezuocat({your-secretKey})
 check_data = json.dumps({
             "texts": [
                 "哈哈哈。我天今吃了一顿饭",
@@ -67,7 +67,7 @@ print(check_result)
 ```python
 import xiezuocat
 import json
-my_xiezuocat = xiezuocat.Xiezuocat('XXX')
+my_xiezuocat = xiezuocat.Xiezuocat({your-secretKey})
 rewrite_data = json.dumps({
   "items": [
     "一般"
@@ -93,7 +93,7 @@ print(rewrite_result)
 ```python
 import xiezuocat
 import json
-my_xiezuocat = xiezuocat.Xiezuocat('XXX')
+my_xiezuocat = xiezuocat.Xiezuocat({your-secretKey})
 generate_params = json.dumps({
     "type": "Step",
     "title": "飞机",
@@ -117,7 +117,7 @@ print(result)
 ##### 调用示例
 ```python
 import xiezuocat
-my_xiezuocat = xiezuocat.Xiezuocat('XXX')
+my_xiezuocat = xiezuocat.Xiezuocat({your-secretKey})
 doc_id = "ffa614ac-631f-4e7d-b0ea-b5ac43670e59" # 此处docId为第一步生成的结果
 result = my_xiezuocat.get_generate_result(doc_id)
 print(result)
@@ -139,11 +139,15 @@ print(result)
 ##### 调用示例
 ```python
 import xiezuocat
-my_xiezuocat = xiezuocat.Xiezuocat('XXX')
-sign_result = my_xiezuocat.get_sso_signature("xx", "ll")
+my_xiezuocat = xiezuocat.Xiezuocat({your-secretKey})
+sign_result = my_xiezuocat.get_sso_signature({your-appId}, {your-uid})
 print(sign_result)
 ```
 ##### 返回结果
 ```json
 eydhcHBJZCc6ICd4eCcsICd1aWQnOiAnbGwnLCAndGltZXN0YW1wJzogMTY4MDUxMTExNy42NjIyMTc2LCAnc2lnbic6ICdmZTM2MmU4MzBkMTFlZDc3ZDkwZjhhNzk0NzkwM2RlMDY1ODA2NjY2NDEzMjg4ZGJjNzFmMzk5MjhmODBlOTAxJ30=
+```
+```js
+// p为签名算法生成的结果
+https://xiezuocat.com/api/open/login?p=eydhcHBJZCc6ICd4eCcsICd1aWQnOiAnbGwnLCAndGltZXN0YW1wJzogMTY4MDUxMTExNy42NjIyMTc2LCAnc2lnbic6ICdmZTM2MmU4MzBkMTFlZDc3ZDkwZjhhNzk0NzkwM2RlMDY1ODA2NjY2NDEzMjg4ZGJjNzFmMzk5MjhmODBlOTAxJ30=
 ```
